@@ -1,0 +1,112 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<!--<div class = "ui text container">-->
+<div class="background-image-div">
+    <div style="background-image: url(<%= campsite.image %>);"></div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m3">
+            <!--Side Feed Content goes here-->
+            <div class="collection">
+                <a href="/campsites" class="collection-item active">Campsites</a>
+                <a href="" class="collection-item">Info 2</a>
+                <a href="" class="collection-item">Info 3</a>                
+            </div>
+            <div id="map"></div>
+        </div>
+        <div class="col s12 m9">
+            <!--Main Campsite Content goes here-->
+            <div class="card">
+                <div class="card-image">
+                    <img class="reponsive-img" src="<%= campsite.image %>">
+                </div>
+                <div class="card-content">
+                    <span class="card-title left"><%= campsite.name %></span>
+                    <span class="description right">$<%= campsite.price %>/night</span>
+                </div>
+                <div class="card-content">
+                    <p class="description"><%= campsite.description %></p>
+                    <h6 class="description"><em>Submitted by <%= campsite.author.username %>, <%= moment(campsite.dateCreated).fromNow() %></em></h6>
+                    <% if (moment(campsite.dateCreated).format("YYMMDD") != moment(campsite.dateUpdated).format("YYMMDD")) { %>
+                        <h6 class="description"><em>Last updated <%= moment(campsite.dateUpdated).fromNow() %></em></h6>
+                    <% }; %>
+                </div>
+                <!--EDIT FUNCTIONS FOR CAMPSITE OWNER OR ADMIN-->
+                <% if (campsite.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || currentUser.isAdmin) { %>
+                    <div class="card-action card-action-custom">
+                        <form class="right padded-custom" action="/campsites/<%= campsite._id %>/?_method=DELETE" method="POST">
+                                <button class="waves-effect waves-light btn red">Delete</button>
+                        </form>
+                        <a class="waves-effect waves-light orange btn right padded-custom" href="/campsites/<%= campsite._id %>/edit">Edit</a>
+                    </div>
+                <% }; %>
+                
+            </div>
+            <ul class="collection with-header z-depth-1">
+                <li class="collection-header-custom">
+                    <a class="waves-effect waves-light blue darken-1 btn right" href="/campsites/<%= campsite._id %>/comments/new">Add Comment</a>
+                </li>
+                <% campsite.comments.forEach(function(comment) { %>
+                    <li class="collection-item">
+                        <div class="title-custom">
+                            <span><%= comment.author.username %></span>
+                        </div>
+                        <div class="grey-text text-darken-1">
+                            <span>
+                                Created <%= moment(comment.dateCreated).fromNow() %>
+                                <% if (moment(comment.dateCreated).calendar() != moment(comment.dateUpdated).calendar()) { %>
+                                     <em>(Last updated <%= moment(comment.dateUpdated).fromNow() %>)</em>
+                                <% }; %>
+                            </span>
+                        </div>
+                        <p><%= comment.text %></p>
+                        <% if (comment.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || currentUser.isAdmin) { %>
+                            <form class="right padded-custom" action="/campsites/<%= campsite._id %>/comments/<%= comment._id %>/?_method=DELETE" method="POST">
+                                    <button class="waves-effect waves-light btn red">Delete</button>
+                            </form>
+                            <a class="waves-effect waves-light orange btn" href="/campsites/<%= campsite._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                            <div style="clear: both;"></div>
+                        <% }; %>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function initMap() {
+        var lat = <%= campsite.location.lat %>;
+        var lng = <%= campsite.location.lng %>;
+        var center = {lat: lat, lng: lng };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: center,
+            scrollwheel: false
+    });
+    var contentString = `
+        <strong><%= campsite.name %><br />
+        <%= campsite.location.description %></strong>
+        <p><%= campsite.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVf-I9v1lHYAS9mV1Vu1X8y5C5VZk3ItU&callback=initMap"></script>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+
+<div class="container z-depth-1">
+
+    <div class="row">
+        <form class="col s8 offset-s2" action="/campsites" method="POST">
+            
+            <div class="row">
+                <div class="header text center">
+                    <h3>Create a New Camping Site</h3>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="campsiteName" name="name">
+                    <label for="campsiteName">Camping Site Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="campsiteImage" name="image">
+                    <label for="campsiteImage">Image URL</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="campsiteLocation" name="location[description]">
+                    <label for="campsiteLocation">Campsite Location</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="campsiteDescription" name="description" class="materialize-textarea"></textarea>
+                    <label for="campsiteDescription">Description</label>
+                </div>
+                <div class="input-field col-s2 offset-s1">
+                    <input type="number" id="campsitePrice" name="price">
+                    <label for="campsitePrice">Price per night</label>
+                </div>
+                <div class="text center">
+                    <button class="waves-effect waves-light btn right blue">Submit</button>
+                    <a href="/campsites" class="left">Back</a>    
+                </div>                
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+
+<div class="container z-depth-1">
+
+    <div class="row">
+        <form class="col s8 offset-s2" action="/campsites/<%= campsite._id %>/comments" method="POST">
+            
+            <div class="row">
+                <div class="header text center">
+                    <h3 class="text flow">Post New Comment to <%= campsite.name %></h3>
+                </div>
+                <div class="input-field">
+                    <textarea id="commentText" class="materialize-textarea" name="comment[text]"></textarea>
+                    <!--<input type="text" id="commentText" name="comment[text]">-->
+                    <label for="commentText">Your comment goes here</label>
+                </div>
+                <div class="text center">
+                    <button class="waves-effect waves-light btn right blue darken-1">Submit</button>
+                    <a href="/campsites/<%= campsite._id %>" class="left">Back</a>    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

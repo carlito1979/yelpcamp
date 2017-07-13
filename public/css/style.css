@@ -1,0 +1,255 @@
+html {
+    font-family: "Lato", sans-serif;
+}
+
+div .container {
+    z-index: 1;
+}
+
+nav {
+    z-index: 2;
+}
+
+
+.nav-bar-padding {
+    margin-top: 30px;
+}
+
+.btn-floating.halfway-fab-custom {
+    position: absolute;
+    right: 24px;
+    top: 160px;
+    /*bottom: -20px;*/
+    overflow: visible;
+    /*top: 60%;*/
+}
+.card.small .card-image.custom {
+  height: 60%;
+  overflow: hidden;
+}
+
+.card.small .card-content, .card.medium .card-content, .card.large .card-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+
+/*******************************
+        Jumbotron
+        Bootstrap CSS
+*******************************/
+.jumbotron {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+    /*padding-top: 30px;*/
+    /*padding-bottom: 30px;*/
+    /*padding-right: 30px;*/
+    /*padding-left: 30px;*/
+
+    padding-top: 1.0rem;
+    padding-bottom: 2.0rem;
+    padding-right: 2.0rem;
+    padding-left: 2.0rem;
+    
+    color: inherit;
+    /*background-color: #eee;*/
+    background-color: #F8F8F9;
+    
+    border-radius: 0.28571429rem;
+    box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+/*.jumbotron h1,*/
+/*.jumbotron .h1 {*/
+/*    font-size: 2.0em;*/
+/*    font-weight: 400;*/
+/*    color: inherit;*/
+/*}*/
+/*.jumbotron p {*/
+/*    margin-bottom: 15px;*/
+/*    font-size: 1.0em;*/
+/*    font-weight: 200;*/
+/*}*/
+.jumbotron > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotron,
+.container-fluid .jumbotron {
+    border-radius: 6px;
+}
+.jumbotron .container {
+    max-width: 100%;
+}
+/*@media screen and (min-width: 768px) {*/
+@media screen and (min-width: 600px) {
+    /*.jumbotron {*/
+    /*    padding-top: 3.0rem;*/
+    /*    padding-bottom: 3.0rem;*/
+    /*    padding-right: 3.0rem;*/
+    /*    padding-left: 3.0rem;*/
+    /*}*/
+    /*.jumbotron {*/
+    /*    padding-top: 48px;*/
+    /*    padding-bottom: 48px;*/
+    /*}*/
+    /*.container .jumbotron,*/
+    /*.container-fluid .jumbotron {*/
+    /*    padding-right: 60px;*/
+    /*    padding-left: 60px;*/
+    /*}*/
+    /*.jumbotron h1,*/
+    /*.jumbotron .h1 {*/
+    /*    font-size: 4.2rem;*/
+    /*    font-weight: 800;*/
+    /*    color: inherit;*/
+    /*}*/
+    /*.jumbotron h1,*/
+    /*.jumbotron .h1 {*/
+    /*    font-size: 2.0em;*/
+    /*}*/
+}
+/*original default colour #26a69a*/
+/*new default colour #1E88E5*/
+
+/*original lighten colour #1E88E5*/
+/*new default lighten colour #42a5f5 */
+
+/*******************************
+        Message
+        Semantic UI
+*******************************/
+
+.ui.message {
+    position: relative;
+    min-height: 1em;
+    margin: 1em 0em;
+    background: #F8F8F9;
+    /*padding-left: 2.0rem;*/
+    /*padding-right: 2.0rem;*/
+    padding: 2.0rem;
+    /*line-height: 1.4285em;*/
+    /*color: rgba(0, 0, 0, 0.87);*/
+    -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+    transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+    border-radius: 0.28571429rem;
+    box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+/*.ui.message:first-child {*/
+/*    margin-top: 0em;*/
+/*}*/
+
+.ui.message:last-child {
+    margin-bottom: 0em;
+}
+
+/* First / Last Element */
+
+.ui.message > :first-child {
+    margin-top: 0em;
+}
+
+.ui.message > :last-child {
+    margin-bottom: 0em;
+}
+
+.collection.with-header .collection-header-custom {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.collection .collection-item .title-custom {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card .card-action.card-action-custom {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.btn.right.padded-custom {
+    margin-right: 20px;
+}
+
+.collection-item .btn {
+    height: 24px;
+    line-height: 24px;
+    font-size: 0.66rem;
+    padding: 0 1.33rem;
+    float: right;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    /*margin-top: 24px;*/
+    border: none;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.collection-item .btn.custom {
+    height: 32px;
+    line-height: 32px;
+    font-size: 0.88rem;
+    padding: 0 1.77rem;
+    float: right;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    /*margin-top: 24px;*/
+    border: none;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.background-image-div {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.background-image-div div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+div .top-padding-custom {
+    margin-top: 30px;
+}
+
+.reveal-div-hidden {
+    margin-top: 30px;
+    display: none;
+}

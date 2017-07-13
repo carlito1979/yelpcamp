@@ -1,0 +1,43 @@
+    <nav class="blue darken-1" role="navigation">
+        <div class="navbar-fixed">
+
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">YelpCamp</a>
+                
+                <ul class="right hide-on-small-only">
+                <% if (!currentUser) { %>
+                    <% if (!isRegister) { %>
+                        <li><a href="/register">Register</a></li>
+                    <% } %>
+                    <% if (!isLogin) { %>
+                        <li><a href="/login">Login</a></li>
+                    <% } %>
+                <% } else { %>
+                    <li><a>
+                        Signed in as <%= currentUser.username %>
+                        <% if (currentUser.isAdmin) { %>
+                             (admin)
+                        <% }; %>
+                    </a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                <% }; %>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </div>        
+    </nav>
+                <ul id="nav-mobile" class="white-text blue lighten-1 side-nav">
+                <% if (!currentUser) { %>
+                    <% if (!isRegister) { %>
+                        <li><a class="white-text" href="/register">Register</a></li>
+                    <% } %>
+                    <% if (!isLogin) { %>
+                        <li><a class="white-text" href="/login">Login</a></li>
+                    <% } %>
+                <% } else { %>
+                    <li><a class="white-text">Signed in as <%= currentUser.username %></a></li>
+                    <li><a class="white-text" href="/logout">Log Out</a></li>
+                <% }; %>
+                </ul>
+                
+<% include ./flash %>

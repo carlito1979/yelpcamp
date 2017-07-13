@@ -1,0 +1,22 @@
+    <div class="nav-bar-padding container">
+    <!--flash messages-->
+        <% if (successMsg && successMsg.length > 0) { %>
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Well done!</strong> <%= successMsg %>.
+            </div>    
+        <% }; %>
+        <% if (errorMsg && errorMsg.length > 0) { %>
+            <div class="alert alert-danger alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Whoops!</strong> <%= errorMsg %>.
+            </div>    
+        <% }; %>
+        <% if (infoMsg && infoMsg.length > 0) { %>
+            <div class="alert alert-info alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <%= infoMsg %>.
+            </div>    
+        <% }; %>
+
+    </div>
