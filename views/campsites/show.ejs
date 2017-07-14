@@ -35,7 +35,7 @@
                     <% }; %>
                 </div>
                 <!--EDIT FUNCTIONS FOR CAMPSITE OWNER OR ADMIN-->
-                <% if (campsite.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || currentUser.isAdmin) { %>
+                <% if (campsite.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || (typeof currentUser != 'undefined' ? currentUser.isAdmin : false)) { %>
                     <div class="card-action card-action-custom">
                         <form class="right padded-custom" action="/campsites/<%= campsite._id %>/?_method=DELETE" method="POST">
                                 <button class="waves-effect waves-light btn red">Delete</button>
@@ -63,7 +63,7 @@
                             </span>
                         </div>
                         <p><%= comment.text %></p>
-                        <% if (comment.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || currentUser.isAdmin) { %>
+                        <% if (comment.author.id.equals((typeof currentUser != 'undefined' ? currentUser._id : null)) || (typeof currentUser != 'undefined' ? currentUser.isAdmin : false)) { %>
                             <form class="right padded-custom" action="/campsites/<%= campsite._id %>/comments/<%= comment._id %>/?_method=DELETE" method="POST">
                                     <button class="waves-effect waves-light btn red">Delete</button>
                             </form>
