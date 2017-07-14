@@ -29,6 +29,7 @@ app.locals.moment = require("moment");
 
 // mongo db connection
 mongoose.connect("mongodb://yelpcamp_server:whoknowswhyIpickedthispassword@ds034807.mlab.com:34807/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
 mongoose.Promise = global.Promise;
 
 // user authentication set up
