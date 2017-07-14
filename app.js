@@ -13,8 +13,7 @@ var express         = require("express"),
 // mongoose model packages
     Campsite        = require("./models/campsite"),
     Comment         = require("./models/comments"),
-    User            = require("./models/user"),
-    seedDB          = require("./seeds");
+    User            = require("./models/user");
 // routes
 var campsiteRoutes  = require("./routes/campsites"),
     commentRoutes   = require("./routes/comments"),
@@ -28,10 +27,9 @@ app.use(methodOverride("_method"));
 app.use(flash());
 app.locals.moment = require("moment");
 
-// mongo db connection and seed
+// mongo db connection
 mongoose.connect("mongodb://localhost/yelp_camp");
 mongoose.Promise = global.Promise;
-//seedDB(); seed database
 
 // user authentication set up
 app.use(expressSession({
