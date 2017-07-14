@@ -23,12 +23,12 @@ router.get("/register", function(req, res) {
 // CREATE user
 router.post("/register", function(req, res) {
     var newUser = new User({username: req.body.username});
-    if (req.body.adminRole && req.body.adminQuestion != "secretphrase123") {
+    if (req.body.adminRole && req.body.adminQuestion != process.env.SECRETPHRASE) {
         // if we got here then the user wants to be an admin but got the phrase wrong
         req.flash("error", flashMsg.wrongAdminPhrase);
         res.redirect("/register");
         return;
-    } else if (req.body.adminRole && req.body.adminQuestion == "secretphrase123") {
+    } else if (req.body.adminRole && req.body.adminQuestion == process.env.SECRETPHRASE) {
         newUser.isAdmin = true;
     }
     User.register(newUser, req.body.password, function(err, user) {
